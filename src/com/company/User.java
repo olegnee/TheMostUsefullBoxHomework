@@ -1,23 +1,12 @@
 package com.company;
 
 public class User implements Runnable{
+
     private int iterationAmount;
     private int howOften;
 
-
-    public int getIterationAmount() {
-        return iterationAmount;
-    }
-
-    public void setIterationAmount(int iterationAmount) {
+    public User(int iterationAmount, int howOften) {
         this.iterationAmount = iterationAmount;
-    }
-
-    public int getHowOften() {
-        return howOften;
-    }
-
-    public void setHowOften(int howOften) {
         this.howOften = howOften;
     }
 
@@ -25,15 +14,19 @@ public class User implements Runnable{
     public void run() {
         int i = 0;
 
-        while (!(i == iterationAmount)) {
+        while (true) {
             try {
                 Thread.sleep(howOften);
                 Main.switcher = true;
+                System.out.println("Включаю");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            i++;
+            if (i == iterationAmount) {
+                break;
+            }
 
         }
-
     }
 }
