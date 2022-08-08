@@ -1,14 +1,15 @@
 package com.company;
 
-public class Toy implements Runnable{
+public class Toy implements Runnable {
     private Thread th;
 
     public Toy(Thread th) {
         this.th = th;
     }
+
     @Override
     public void run() {
-            while(true) {
+        while (true) {
             if (Main.switcher) {
                 Main.switcher = false;
                 System.out.println("Выключаю");
@@ -17,7 +18,7 @@ public class Toy implements Runnable{
                 Main.switcher = false;
                 System.out.println("Выключаю");
                 break;
-                }
+            }
         }
     }
 }
